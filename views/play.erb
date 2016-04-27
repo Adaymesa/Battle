@@ -11,4 +11,14 @@
 		<td><%= @player1_name %>'s HP : 100</td>
 		<td><%= @player2_name %>'s HP : 100</td>
 	</tr>
+	<tr>
+		<td><form action="/attack"> <input type="submit" value="Attack <%= @player2_name %>"></td>
+		<td><button class="player2attack" type="button" onclick="/attack">Attack <%= @player1_name %></button></td>
+	</tr>
+	<% if @attacking %><tr>
+		<td><%= @player1_name %> succesfully attacks <%= @player2_name %></td>
+	</tr>
+	<% end %>
 </table>
+
+
