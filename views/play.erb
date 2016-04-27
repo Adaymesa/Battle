@@ -8,15 +8,26 @@
 		</td>
 	</tr>
 	<tr>
-		<td><%= @player1_name %>'s HP : 100</td>
-		<td><%= @player2_name %>'s HP : 100</td>
+		<td><%= @player1_name %>'s HP : <%= @player1_hp %></td>
+		<td><%= @player2_name %>'s HP : <%= @player2_hp %></td>
 	</tr>
 	<tr>
-		<td><form action="/attack"> <input type="submit" value="Attack <%= @player2_name %>"></td>
-		<td><button class="player2attack" type="button" onclick="/attack">Attack <%= @player1_name %></button></td>
+		<td>
+		<form action="/attack" method="POST">
+		<input type="hidden" name="player" value="Player2">
+		<input type="submit" value="Attack <%= @player2_name %>">
+		</td>
+		<td>
+		<form action="/attack" method="POST">
+		<input type="hidden" name="player" value="Player1">
+		<input type="submit" value="Attack <%= @player1_name %>">
+		</form>
+		</td>
 	</tr>
-	<% if @attacking %><tr>
-		<td><%= @player1_name %> succesfully attacks <%= @player2_name %></td>
+	<% if @attacking %>
+	<tr>
+		<td><%= @player1_name %> succesfully attacks <%= @player2_name %>
+		</td>
 	</tr>
 	<% end %>
 </table>
