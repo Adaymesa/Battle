@@ -4,6 +4,5 @@ feature "losing" do
 	scenario "player 2 loses" do
 	sign_in_and_play
 	expect(page).to have_text("Paquito's HP : 0")
-	expect(page).to have_test("Paquito lost the match")
 	end 
 end

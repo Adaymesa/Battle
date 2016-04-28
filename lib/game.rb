@@ -16,11 +16,16 @@ class Game
     @turn == player1 ? player2.receive_damage : player1.receive_damage
   end
 
-  def gameover
+  def gameover?
+  	true unless check_loser
+  	false
+  end
+
+  def check_loser
   	if player2.hit_points == 0
-  		"#{player2.name} loses"
+  		player2.name
   	elsif player1.hit_points == 0
-  		"#{player1.name} loses"
+  		player1.name
   	end
   end
 
