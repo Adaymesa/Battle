@@ -17,13 +17,13 @@ class Battle < Sinatra::Base
 
   get "/play" do
   	@game = $game
-  	erb(:play)
+  	erb :play
   end
 
   get "/attack" do
-  	@attack = @game.player1.attack(player2)
-		@game = $game
-		erb(:play)
+    @game = $game
+  	@attack = @game.attack(@game.player2)
+		erb :play
  end
 # start the server if ruby file executed directly
   run! if app_file == $0
