@@ -27,10 +27,17 @@
         </td>
     </tr>
     <% if @attack %>
-    <tr>
-        <td><%= @game.player1.name %> succesfully attacks <%= @game.player2.name %>
-        </td>
-    </tr>
+        <% if @game.turn == @game.player1 %>
+            <tr>
+                <td><%= @game.player2.name %> succesfully attacks <%= @game.player1.name %>
+                </td>
+            </tr>
+        <% else %>
+            <tr>
+                <td><%= @game.player1.name %> succesfully attacks <%= @game.player2.name %>
+                </td>
+            </tr>
+        <% end %>
     <% end %>
 
 </table>
