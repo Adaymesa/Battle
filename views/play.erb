@@ -1,4 +1,4 @@
-<%= @player1_name %> VS <%= @player2_name %>
+<%= @game.player1.name %> VS <%= @game.player2.name %>
 
 <table style="100 %" >
 	<tr>
@@ -8,24 +8,24 @@
 		</td>
 	</tr>
 	<tr>
-		<td><%= @player1_name %>'s HP : <%= @player1_hp %></td>
-		<td><%= @player2_name %>'s HP : <%= @player2_hp %></td>
+		<td><%= @game.player1.name %>'s HP : <%= @game.player1.hit_points %></td>
+		<td><%= @game.player2.name %>'s HP : <%= @game.player2.hit_points %></td>
 	</tr>
 	<tr>
 		<td>
 		<form method="get" action="/attack">
-  		<button type="submit">Attack <%= @player2_name %></button>
+  		<button type="submit">Attack <%= @game.player1.name %></button>
 		</form>
 		</td>
 		<td>
 		<form method="get" action="/attack">
-  		<button type="submit">Attack <%= @player1_name %></button>
+  		<button type="submit">Attack <%= @game.player2.name %></button>
 		</form>
 		</td>
 	</tr>
-	<% if @player1_attack %>
+	<% if @attack %>
 	<tr>
-		<td><%= @player1_name %> succesfully attacks <%= @player2_name %>
+		<td><%= @game.player1.name %> succesfully attacks <%= @game.player2.name %>
 		</td>
 	</tr>
 	<% end %>
