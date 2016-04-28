@@ -1,14 +1,14 @@
 require 'game'
 
 describe Game do
-	let(:game) { described_class.new(player1, player2) }
-	let(:player1) { spy(:player1) }
-	let(:player2)	{ spy(:player2) }
+  let(:game) { described_class.new(player1, player2) }
+  let(:player1) { spy(:player1) }
+  let(:player2) { spy(:player2) }
 
-	it 'attack players' do
-		game.attack
-		expect(player2).to have_received(:receive_damage)
-	end
+  it 'attack players' do
+    game.attack
+    expect(player2).to have_received(:receive_damage)
+  end
 
   it 'attacks after switch' do
     game.switch
