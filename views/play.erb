@@ -13,18 +13,17 @@
 	</tr>
 	<tr>
 		<td>
-		<form action="/attack" method="POST">
-		<input type="hidden" name="player" value="Player2">
-		<input type="submit" value="Attack <%= @player2_name %>">
+		<form method="get" action="/attack">
+  		<button type="submit">Attack <%= @player2_name %></button>
+		</form>
 		</td>
 		<td>
-		<form action="/attack" method="POST">
-		<input type="hidden" name="player" value="Player1">
-		<input type="submit" value="Attack <%= @player1_name %>">
+		<form method="get" action="/attack">
+  		<button type="submit">Attack <%= @player1_name %></button>
 		</form>
 		</td>
 	</tr>
-	<% if @attacking %>
+	<% if @player1_attack %>
 	<tr>
 		<td><%= @player1_name %> succesfully attacks <%= @player2_name %>
 		</td>
