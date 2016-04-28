@@ -6,16 +6,27 @@ describe Game do
 	let(:player2)	{ spy(:player2) }
 
 	it 'attack players' do
-		game.attack(player2)
+		game.attack
 		expect(player2).to have_received(:receive_damage)
 	end
 
-  it 'retrieve player1' do
+  it 'attacks after switch' do
+    game.switch
+    game.attack
+    expect(player1).to have_received(:receive_damage)
+  end
+
+  it 'retrieves player1' do
     expect(game.player1).to eq player1
   end
 
-  it 'retrieve player2' do
+  it 'retrieves player2' do
     expect(game.player2).to eq player2
+  end
+
+  it 'switches player' do
+    turn = player1
+    expect(game.switch).to eq player2
   end
 
 end
