@@ -8,6 +8,14 @@ class Game
     @turn = @player1
   end
 
+   def self.create(player1, player2)
+    @game = Game.new(player1,player2)
+  end
+
+  def self.instance
+    @game
+  end
+
   def switch
     @turn == player1 ? @turn = player2 : @turn = player1
   end
