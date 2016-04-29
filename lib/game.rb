@@ -17,7 +17,7 @@ class Game
   end
 
   def gameover?
-  	true unless check_loser
+  	true if check_loser
   	false
   end
 
