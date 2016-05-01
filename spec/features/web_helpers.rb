@@ -1,6 +1,6 @@
 def sign_in_and_play
   visit('/')
-  fill_in("Player 1", with: "Juanito")
-  fill_in("Player 2", with: "Paquito")
-  click_button("Submit")
+  fill_in(:player1_name, with: "Juanito")
+  fill_in(:player2_name, with: "Paquito")
+  click_button("Start fight")
 end

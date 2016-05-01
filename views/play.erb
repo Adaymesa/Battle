@@ -1,45 +1,48 @@
-<h1><%= @game.player1.name %> VS <%= @game.player2.name %></h1>
+<div>
+  <center>
+    <h1><%= @game.player1.name %> VS <%= @game.player2.name %></h1>
 
-<table style="100 %" >
-    <tr>
-        <h2>It's now <%= @game.turn.name %> turn.</h2>
-    </tr>
-    <tr>
-        <td><img src="http://downloadicons.net/sites/default/files/super-mario-icons-34502.png" alt="Player 1 Icon">
-        </td>
-        <td><img src="https://pbs.twimg.com/profile_images/378800000126010833/ccaf376e5be885a124f13c5cdb1907ca.png" alt="Player 2 Icon">
-        </td>
-    </tr>
-    <tr>
-        <td><%= @game.player1.name %>'s HP : <%= @game.player1.hit_points %></td>
-        <td><%= @game.player2.name %>'s HP : <%= @game.player2.hit_points %></td>
-    </tr>
-    <tr>
-        <td>
-        <form method="get" action="/attack">
-        <button type="submit">Attack <%= @game.player2.name %></button>
-        </form>
-        </td>
-        <td>
-        <form method="get" action="/attack">
-        <button type="submit">Attack <%= @game.player1.name %></button>
-        </form>
-        </td>
-    </tr>
-    <% if @attack %>
-        <% if @game.turn == @game.player1 %>
+        <table style="100 %" >
             <tr>
-                <td><%= @game.player2.name %> succesfully attacks <%= @game.player1.name %>
+                <h2>It's now <%= @game.turn.name %> turn.</h2>
+            </tr>
+            <tr>
+                <td><img src="http://downloadicons.net/sites/default/files/super-mario-icons-34502.png" alt="Player 1 Icon">
+                </td>
+                <td><img src="https://pbs.twimg.com/profile_images/378800000126010833/ccaf376e5be885a124f13c5cdb1907ca.png" alt="Player 2 Icon">
                 </td>
             </tr>
-        <% else %>
             <tr>
-                <td><%= @game.player1.name %> succesfully attacks <%= @game.player2.name %>
+                <td><%= @game.player1.name %>'s HP : <%= @game.player1.hit_points %></td>
+                <td><%= @game.player2.name %>'s HP : <%= @game.player2.hit_points %></td>
+            </tr>
+            <tr>
+                <td>
+                <form method="get" action="/attack">
+                <button type="submit">Attack <%= @game.player2.name %></button>
+                </form>
+                </td>
+                <td>
+                <form method="get" action="/attack">
+                <button type="submit">Attack <%= @game.player1.name %></button>
+                </form>
                 </td>
             </tr>
-        <% end %>
-    <% end %>
-
-</table>
+            <% if @attack %>
+                <% if @game.turn == @game.player1 %>
+                    <tr>
+                        <td><%= @game.player2.name %> succesfully attacks <%= @game.player1.name %>
+                        </td>
+                    </tr>
+                <% else %>
+                    <tr>
+                        <td><%= @game.player1.name %> succesfully attacks <%= @game.player2.name %>
+                        </td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </table>
+    </center>
+</div>
 
 

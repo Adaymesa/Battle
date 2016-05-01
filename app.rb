@@ -28,9 +28,8 @@ class Battle < Sinatra::Base
     	@loser = @game.check_loser
     	redirect("/gameover")
     else
-    	redirect("/attack")
+    	erb :play
     end
-    erb :play
   end
 
  	get "/gameover" do
